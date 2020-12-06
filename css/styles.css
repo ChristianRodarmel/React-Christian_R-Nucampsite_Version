@@ -1,0 +1,34 @@
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.navbar {
+    background-color: #542451;
+    font-size: 1.5rem;
+}
+
+.jumbotron {
+    padding: 30px;
+    background: #a83ea2;
+    color: white;
+    margin: 0;
+}
+
+.main-container {
+    padding: 30px;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.modal-header {
+    background-color: #0096dc;
+    color: white;
+}
+
+footer {
+    background: #3d418b;
+    color: white;
+    padding: 15px;
+}
