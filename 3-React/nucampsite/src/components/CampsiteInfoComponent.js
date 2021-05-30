@@ -1,8 +1,84 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { LocalForm, Control, Errors } from 'react-redux-form';
 
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => !val || val.length >= len;
     
+class CommentForm extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isModalOpen: false,
+        };
+
+        this.toggleModal = this.toggleModal.bind(this);
+    }
+
+    toggleModal() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen,
+        });
+    }
+
+    render() {
+        return(
+            <div>
+                <Button outline onClick={this.toggleModal}><i className="fa fa-pencil fa-lg" />Submit Comment</Button>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleMedia}>
+                    <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+                    <ModalBody>
+                        <LocalForm>
+                            <Label htmlFor="rating">Rating</Label>
+                            <Control.select
+                                model=".rating"
+                                id="rating"
+                                defaultValue={1}
+                                name="rating"
+                                className="form-control"
+                                >
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </Control.select>
+                            <Label htmlFor="author">Your Name</Label>
+                        <Control.text 
+                            model=".author"
+                            id="author"
+                            name="author"
+                            placeholder="Your Name"
+                            className="form-control"
+                            validators={{
+                                required,
+                                minLength: minLength(2),
+                                maxLength: maxLength(15)
+                            }}
+                            />
+
+                        <Label htmlFor="comment">Comments...</Label>
+                        <Control.textarea
+                            model=".text"
+                            id="text"
+                            name="text"
+                            placeholder="Type your response"
+                            className="form-control"
+                            rows="12"
+                            />
+                            <Button value="submit" type="submit">Submit Comment</Button>
+                        </LocalForm>
+                    </ModalBody>
+                </Modal>
+            </div>
+        );
+    }
+}
+
     function RenderCampsite({campsite}) {
     
     <div></div>
@@ -35,7 +111,7 @@ function RenderComments({comments}) {
                     </div>
                 );
             })}
-
+            <CommentForm />
             </div>
         );
     }
