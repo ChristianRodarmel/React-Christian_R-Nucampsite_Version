@@ -208,6 +208,7 @@ class Contact extends Component {
                                     <Control.textarea model=".feedback" id="feedback"   name="feedback"
                                         rows="12"
                                         className="form-control"
+                                        placeholder="Let us know how we did..."
                                     />
                                 </Col>
                             </Row>
