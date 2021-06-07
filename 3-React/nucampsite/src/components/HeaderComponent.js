@@ -22,16 +22,16 @@ class Header extends Component {
         return (
  // there is shorthand for <React.Fragment> = <> and </> (not widely supported yet)
             <React.Fragment>
-                <Jumbotron fluid>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col">
-                                <h1>NuCamp</h1>
-                                <h2>a better way to camp</h2>
+                    <Jumbotron fluid>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col">
+                                    <h1>NuCamp</h1>
+                                    <h2>a better way to camp</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Jumbotron>
+                    </Jumbotron>
                 <Navbar dark sticky="top" expand="md">
                     <div className="container">
                         <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo.png" height="30" width="30" alt="NuCamp Logo" /></NavbarBrand>
